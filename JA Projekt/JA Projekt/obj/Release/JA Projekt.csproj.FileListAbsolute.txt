@@ -1,0 +1,20 @@
+C:\Users\KubaG\Desktop\Studia\III_Rok\JA\JA Projekt\JA Projekt\bin\Release\JA Projekt.exe.config
+C:\Users\KubaG\Desktop\Studia\III_Rok\JA\JA Projekt\JA Projekt\bin\Release\JA Projekt.exe
+C:\Users\KubaG\Desktop\Studia\III_Rok\JA\JA Projekt\JA Projekt\bin\Release\JA Projekt.pdb
+C:\Users\KubaG\Desktop\Studia\III_Rok\JA\JA Projekt\JA Projekt\obj\Release\JA Projekt.csproj.AssemblyReference.cache
+C:\Users\KubaG\Desktop\Studia\III_Rok\JA\JA Projekt\JA Projekt\obj\Release\JA_Projekt.Form1.resources
+C:\Users\KubaG\Desktop\Studia\III_Rok\JA\JA Projekt\JA Projekt\obj\Release\JA_Projekt.Properties.Resources.resources
+C:\Users\KubaG\Desktop\Studia\III_Rok\JA\JA Projekt\JA Projekt\obj\Release\JA Projekt.csproj.GenerateResource.cache
+C:\Users\KubaG\Desktop\Studia\III_Rok\JA\JA Projekt\JA Projekt\obj\Release\JA Projekt.csproj.CoreCompileInputs.cache
+C:\Users\KubaG\Desktop\Studia\III_Rok\JA\JA Projekt\JA Projekt\obj\Release\JA Projekt.exe
+C:\Users\KubaG\Desktop\Studia\III_Rok\JA\JA Projekt\JA Projekt\obj\Release\JA Projekt.pdb
+C:\Users\login\Downloads\JA-Projekt\JA Projekt\JA Projekt\bin\Release\JA Projekt.exe.config
+C:\Users\login\Downloads\JA-Projekt\JA Projekt\JA Projekt\bin\Release\JA Projekt.exe
+C:\Users\login\Downloads\JA-Projekt\JA Projekt\JA Projekt\bin\Release\JA Projekt.pdb
+C:\Users\login\Downloads\JA-Projekt\JA Projekt\JA Projekt\obj\Release\JA Projekt.csproj.AssemblyReference.cache
+C:\Users\login\Downloads\JA-Projekt\JA Projekt\JA Projekt\obj\Release\JA_Projekt.Form1.resources
+C:\Users\login\Downloads\JA-Projekt\JA Projekt\JA Projekt\obj\Release\JA_Projekt.Properties.Resources.resources
+C:\Users\login\Downloads\JA-Projekt\JA Projekt\JA Projekt\obj\Release\JA Projekt.csproj.GenerateResource.cache
+C:\Users\login\Downloads\JA-Projekt\JA Projekt\JA Projekt\obj\Release\JA Projekt.csproj.CoreCompileInputs.cache
+C:\Users\login\Downloads\JA-Projekt\JA Projekt\JA Projekt\obj\Release\JA Projekt.exe
+C:\Users\login\Downloads\JA-Projekt\JA Projekt\JA Projekt\obj\Release\JA Projekt.pdb
