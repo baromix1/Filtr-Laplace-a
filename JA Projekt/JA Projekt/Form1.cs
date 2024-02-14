@@ -1,9 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
+using System;
+
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Linq;
 
 namespace JA_Projekt
 {
@@ -15,6 +20,58 @@ namespace JA_Projekt
         {
             InitializeComponent();
         }
+        private Bitmap GenerateHistogramImage(Dictionary<int, int>[] histograms)
+        {
+            // Stwórz nowy wykres
+            Chart chart = new Chart();
+
+            // Dodaj obszar wykresu
+            ChartArea chartArea = new ChartArea();
+            chart.ChartAreas.Add(chartArea);
+
+            // Dodaj serię danych do wykresu dla kanałów R, G, B
+            string[] channelNames = { "R", "G", "B" };
+            for (int i = 0; i < histograms.Length; i++)
+            {
+                Series series = new Series();
+                series.ChartType = SeriesChartType.Column;
+                series.Name = channelNames[i];
+                chart.Series.Add(series);
+
+                // Dodaj punkty danych do serii dla danego kanału
+                foreach (var kvp in histograms[i].OrderBy(kvp => kvp.Key))
+                {
+                    int value = kvp.Key;
+                    int count = kvp.Value;
+                    series.Points.AddXY(value.ToString(), count);
+                }
+            }
+
+            // Ustawienia wyglądu wykresu
+            chart.Width = 600; // Szerokość wykresu
+            chart.Height = 300; // Wysokość wykresu
+            chart.BackColor = Color.White;
+
+            // Ustawienia osi X
+            chartArea.AxisX.Title = "Wartość koloru";
+            chartArea.AxisX.MajorGrid.Enabled = false;
+            chartArea.AxisX.Interval = 20;
+
+            // Ustawienia osi Y
+            chartArea.AxisY.Title = "Liczba pikseli";
+            chartArea.AxisY.MajorGrid.Enabled = false;
+            chartArea.AxisY.IsLogarithmic = true;
+
+            // Renderowanie wykresu do obrazka
+            Bitmap chartImage = new Bitmap(chart.Width, chart.Height);
+            chart.DrawToBitmap(chartImage, new Rectangle(0, 0, chart.Width, chart.Height));
+
+            // Zwolnij zasoby wykorzystywane przez wykres
+            chart.Dispose();
+
+            return chartImage;
+        }
+
 
         // Obsługa zdarzenia kliknięcia na obraz
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -32,10 +89,32 @@ namespace JA_Projekt
         private void Form1_Load(object sender, EventArgs e)
         {
             // Ustawienia początkowe formularza i elementów interfejsu użytkownika
-            pictureBox.Dock = DockStyle.Fill;
+            
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             Controls.Add(pictureBox);
+            TableLayoutPanel tableLayoutPanel = new TableLayoutPanel();
+            tableLayoutPanel.Dock = DockStyle.Fill;
+            tableLayoutPanel.ColumnCount = 3; // Dwie kolumny - jedna na lewo, druga na prawo
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F)); // 50% szerokości dla każdej kolumny
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel.RowCount = 2; // Trzy wiersze - pierwszy na połowę, drugi i trzeci na resztę
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F)); // 50% wysokości dla pierwszego wiersza
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F)); // 25% wysokości dla drugiego wiersza
+           
 
+            // Dodaj PictureBox do pierwszej kolumny (po lewej) i pierwszego wiersza (na środku)
+            tableLayoutPanel.Controls.Add(pictureBox1, 0, 0);
+            // Dodaj PictureBox do pierwszej kolumny (po lewej) i drugiego wiersza (na dole)
+            tableLayoutPanel.Controls.Add(pictureBox2, 0, 1);
+            // Dodaj PictureBox do drugiej kolumny (po prawej) i wszystkich wierszy (cała wysokość)
+            tableLayoutPanel.Controls.Add(pictureBox, 1, 0);
+            tableLayoutPanel.SetRowSpan(pictureBox, 2);
+
+            // Dodaj TableLayoutPanel do formularza
+            this.Controls.Add(tableLayoutPanel);
             iloscWatkowProcesora = Environment.ProcessorCount;
 
             openFileDialog.Filter = "Obrazy (*.jpg;*.png)|*.jpg;*.png|Wszystkie pliki (*.*)|*.*";
@@ -134,7 +213,9 @@ namespace JA_Projekt
                             bytes[(i * size.Height + j) * 3 + 2] = input.GetPixel(i, j).B;
                         }
                     }
-
+                    Dictionary<int, int>[] histogr = CreateRGBHistogram(input);
+                    Bitmap a=GenerateHistogramImage(histogr);
+                    pictureBox1.Image = a;
                     // Filtracja obrazu
                     bool isAsm = checkBox2.Checked;
                     var outputBytes = await wywołajAlgorytm.filtruj(bytes, iloscWatkow, size.Height, isAsm);
@@ -149,6 +230,10 @@ namespace JA_Projekt
                         }
                     }
                     pictureBox.Image = output;
+
+                    Dictionary<int, int>[] histogrOut = CreateRGBHistogram(output);
+                    Bitmap b = GenerateHistogramImage(histogrOut);
+                    pictureBox2.Image = b;
                 }
                 catch (Exception ex)
                 {
@@ -196,6 +281,54 @@ namespace JA_Projekt
             }
         }
 
-      
+        static Dictionary<int, int>[] CreateRGBHistogram(Bitmap bitmap)
+        {
+            // Inicjalizacja histogramów dla każdego kanału koloru (R, G, B)
+            Dictionary<int, int> histogramR = new Dictionary<int, int>();
+            Dictionary<int, int> histogramG = new Dictionary<int, int>();
+            Dictionary<int, int> histogramB = new Dictionary<int, int>();
+
+            // Iteracja po każdym pikselu obrazu
+            for (int y = 0; y < bitmap.Height; y++)
+            {
+                for (int x = 0; x < bitmap.Width; x++)
+                {
+                    Color pixelColor = bitmap.GetPixel(x, y);
+
+                    // Zwiększ licznik dla kanałów R, G, B
+                    int r = pixelColor.R;
+                    if (histogramR.ContainsKey(r))
+                        histogramR[r]++;
+                    else
+                        histogramR[r] = 1;
+
+                    int g = pixelColor.G;
+                    if (histogramG.ContainsKey(g))
+                        histogramG[g]++;
+                    else
+                        histogramG[g] = 1;
+
+                    int b = pixelColor.B;
+                    if (histogramB.ContainsKey(b))
+                        histogramB[b]++;
+                    else
+                        histogramB[b] = 1;
+                }
+            }
+
+            // Zwrócenie histogramów dla wszystkich kanałów kolorów
+            return new Dictionary<int, int>[] { histogramR, histogramG, histogramB };
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }

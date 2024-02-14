@@ -46,7 +46,7 @@ extern "C" __declspec(dllexport) void __stdcall FiltrLaplCpp(unsigned char* wejs
         // Inicjalizujemy tablicę od wartości tablicy 3x3 odpowiednio R, G i B.
         unsigned char piksele[9][3];
 
-        // Sczytujemy wartości z obszaru 3x3 wokół obecnego piksela i zapisujemy je do tablic piksele.
+        // Zczytujemy wartości z obszaru 3x3 wokół obecnego piksela i zapisujemy je do tablic piksele.
         int k = 0;
         for (int y = -1; y <= 1; ++y)
         {

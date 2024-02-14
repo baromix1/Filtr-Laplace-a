@@ -18,3 +18,14 @@ C:\Users\login\Downloads\JA-Projekt\JA Projekt\JA Projekt\obj\Release\JA Projekt
 C:\Users\login\Downloads\JA-Projekt\JA Projekt\JA Projekt\obj\Release\JA Projekt.csproj.CoreCompileInputs.cache
 C:\Users\login\Downloads\JA-Projekt\JA Projekt\JA Projekt\obj\Release\JA Projekt.exe
 C:\Users\login\Downloads\JA-Projekt\JA Projekt\JA Projekt\obj\Release\JA Projekt.pdb
+C:\Users\Admin\Downloads\Filtr-Laplace-a-main\Filtr-Laplace-a-main\JA Projekt\JA Projekt\bin\Release\JA Projekt.exe.config
+C:\Users\Admin\Downloads\Filtr-Laplace-a-main\Filtr-Laplace-a-main\JA Projekt\JA Projekt\bin\Release\JA Projekt.exe
+C:\Users\Admin\Downloads\Filtr-Laplace-a-main\Filtr-Laplace-a-main\JA Projekt\JA Projekt\bin\Release\JA Projekt.pdb
+C:\Users\Admin\Downloads\Filtr-Laplace-a-main\Filtr-Laplace-a-main\JA Projekt\JA Projekt\obj\Release\JA Projekt.csproj.AssemblyReference.cache
+C:\Users\Admin\Downloads\Filtr-Laplace-a-main\Filtr-Laplace-a-main\JA Projekt\JA Projekt\obj\Release\JA Projekt.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\Downloads\Filtr-Laplace-a-main\Filtr-Laplace-a-main\JA Projekt\JA Projekt\obj\Release\JA_Projekt.Form1.resources
+C:\Users\Admin\Downloads\Filtr-Laplace-a-main\Filtr-Laplace-a-main\JA Projekt\JA Projekt\obj\Release\JA_Projekt.Properties.Resources.resources
+C:\Users\Admin\Downloads\Filtr-Laplace-a-main\Filtr-Laplace-a-main\JA Projekt\JA Projekt\obj\Release\JA Projekt.csproj.GenerateResource.cache
+C:\Users\Admin\Downloads\Filtr-Laplace-a-main\Filtr-Laplace-a-main\JA Projekt\JA Projekt\obj\Release\JA Projekt.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\Filtr-Laplace-a-main\Filtr-Laplace-a-main\JA Projekt\JA Projekt\obj\Release\JA Projekt.exe
+C:\Users\Admin\Downloads\Filtr-Laplace-a-main\Filtr-Laplace-a-main\JA Projekt\JA Projekt\obj\Release\JA Projekt.pdb

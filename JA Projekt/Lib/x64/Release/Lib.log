@@ -1,12 +1,12 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(503,5): warning MSB8004: Katalog Output nie kończy się ukośnikiem. To wystąpienie kompilacji doda ukośnik, ponieważ jest on niezbędny, aby możliwa była poprawna ocena katalogu Output.
   Assembling Ass.asm...
   pch.cpp
   dllmain.cpp
-     Creating library ..\JA Projekt\bin\Release\Lib.lib and object ..\JA Projekt\bin\Release\Lib.exp
+     Trwa tworzenie biblioteki ..\JA Projekt\bin\Release\Lib.lib i obiektu ..\JA Projekt\bin\Release\Lib.exp
   Previous IPDB not found, fall back to full compilation.
   All 0 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-Lib.exp : warning LNK4070: /OUT:Source.dll directive in .EXP differs from output filename '..\JA Projekt\bin\Release\Lib.dll'; ignoring directive
-  Generating code
-  Finished generating code
-Lib.exp : warning LNK4070: /OUT:Source.dll directive in .EXP differs from output filename '..\JA Projekt\bin\Release\Lib.dll'; ignoring directive
-  Lib.vcxproj -> C:\Users\login\Downloads\JA-Projekt\JA Projekt\JA Projekt\bin\Release\Lib.dll
+Lib.exp : warning LNK4070: /OUT: dyrektywa Source.dll w pliku .EXP jest inna niż nazwa pliku wyjściowego „..\JA Projekt\bin\Release\Lib.dll”; dyrektywa została zignorowana
+  Trwa generowanie kodu
+  Zakończono generowanie kodu
+Lib.exp : warning LNK4070: /OUT: dyrektywa Source.dll w pliku .EXP jest inna niż nazwa pliku wyjściowego „..\JA Projekt\bin\Release\Lib.dll”; dyrektywa została zignorowana
+  Lib.vcxproj -> C:\Users\Admin\Downloads\Filtr-Laplace-a-main\Filtr-Laplace-a-main\JA Projekt\JA Projekt\bin\Release\Lib.dll
